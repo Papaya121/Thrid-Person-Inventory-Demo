@@ -1,0 +1,32 @@
+:root {
+}
+
+.crosshair {
+    background-color: rgba(255, 255, 255, 0.28);
+    margin-top: -3px;
+    margin-left: -3px;
+    width: 6px;
+    height: 6px;
+    left: 50%;
+    top: 50%;
+    border-top-left-radius: 318px;
+    border-top-right-radius: 318px;
+    border-bottom-right-radius: 318px;
+    border-bottom-left-radius: 318px;
+    position: absolute;
+}
+
+.crosshair.active {
+    background-color: rgba(255, 255, 0, 0.7);
+    margin-top: -3px;
+    margin-left: -3px;
+    width: 6px;
+    height: 6px;
+    left: 50%;
+    top: 50%;
+    border-top-left-radius: 318px;
+    border-top-right-radius: 318px;
+    border-bottom-right-radius: 318px;
+    border-bottom-left-radius: 318px;
+    position: absolute;
+}
