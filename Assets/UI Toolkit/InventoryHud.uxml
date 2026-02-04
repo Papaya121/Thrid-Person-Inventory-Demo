@@ -1,13 +1,10 @@
-<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False"> <Style src="project://database/Assets/UI%20Toolkit/InventoryHudStyle.uss?fileID=7433441132597879392&amp;guid=70da6fc575925b146976b72565799ea9&amp;type=3#InventoryHudStyle" />
-    <ui:VisualElement name="InventoryContainer" class="inventory-container">
-        <ui:Label text="Inventory" class="inventory-header" />
-        <ui:VisualElement name="SlotGrid" class="slot-grid">
-            <ui:VisualElement name="Slot1" class="slot">
-                <ui:Image name="ItemIcon" class="item-icon" />
-            </ui:VisualElement>
-            <ui:VisualElement name="Slot2" class="slot">
-                <ui:Image name="ItemIcon" class="item-icon" />
-            </ui:VisualElement>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/InventoryHudStyle.uss?fileID=7433441132597879392&amp;guid=70da6fc575925b146976b72565799ea9&amp;type=3#InventoryHudStyle" />
+    <ui:VisualElement name="inventoryRoot" class="inv-root">
+        <ui:VisualElement name="window" class="inv-window">
+            <ui:Label text="Inventory" class="inv-title" />
+            <ui:VisualElement name="grid" class="inv-grid" />
         </ui:VisualElement>
+        <ui:VisualElement name="dragGhost" picking-mode="Ignore" class="drag-ghost" />
     </ui:VisualElement>
 </ui:UXML>

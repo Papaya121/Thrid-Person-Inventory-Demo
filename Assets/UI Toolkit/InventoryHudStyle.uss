@@ -1,56 +1,74 @@
 
 :root { }
 
-.inventory-container {
-    width: 80%;
-    height: 80%;
-    background-color: rgba(0, 0, 0, 0.75);
-    border-radius: 10px;
-    padding: 20px;
+.inv-root {
     position: absolute;
-    top: 10%;
-    left: 10%;
-    display: flex;
-    flex-direction: column;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    justify-content: center;
     align-items: center;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0,0,0,0.35);
 }
 
-.inventory-header {
-    font-size: 24px;
-    color: white;
-    margin-bottom: 20px;
-    font-weight: bold;
+.inv-window {
+    width: 520px;
+    padding: 14px;
+    border-radius: 10px;
+    background-color: rgba(20,20,20,0.95);
 }
 
-.slot-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    padding: 10px;
+.inv-title {
+    unity-font-style: bold;
+    font-size: 18px;
+    color: rgb(230,230,230);
+    margin-bottom: 10px;
+}
+
+.inv-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .slot {
-    background-color: rgba(255, 255, 255, 0.1);
-    width: 60px;
-    height: 60px;
+    width: 110px;
+    height: 110px;
+    margin: 6px;
     border-radius: 8px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-width: 2px;
+    border-color: rgba(255,255,255,0.15);
+    background-color: rgba(255,255,255,0.05);
 }
 
-.slot:hover {
-    background-color: rgba(255, 255, 0, 0.3);
+.slot--hover {
+    border-color: rgba(255,255,255,0.55);
 }
 
-.item-icon {
-    width: 50%;
-    height: 50%;
-    object-fit: contain;
-    border-radius: 5px;
+.slot-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.slot-qty {
+    position: absolute;
+    right: 6px;
+    bottom: 4px;
+    font-size: 14px;
+    unity-font-style: bold;
+    color: white;
+    text-shadow: 0 0 2px rgba(0,0,0,0.7);
+}
+
+.drag-ghost {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    display: none;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: rgba(255,255,255,0.35);
+    background-color: rgba(255,255,255,0.1);
 }

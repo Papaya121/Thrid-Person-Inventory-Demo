@@ -6,9 +6,18 @@ public class InventoryController : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private GameStateManager _gameState;
     [SerializeField] private InventoryView _view;
+    [SerializeField] private PickupFactory _pickupFactory;
 
     private InventorySystem _inventorySystem;
     public InventorySystem InventorySystem => _inventorySystem;
+
+    private ItemDatabase _itemDatabase;
+    public ItemDatabase ItemDatabase => _itemDatabase;
+
+    public void Construct(ItemDatabase db)
+    {
+        _itemDatabase = db;
+    }
 
     void OnEnable()
     {
@@ -18,39 +27,18 @@ public class InventoryController : MonoBehaviour
     void OnDisable()
     {
         _playerInput.InventoryPressed -= OnInventoryPressed;
+        _view.RequestDropToWorld -= OnRequestDropToWorld;
     }
 
     private void Awake()
     {
         _inventorySystem = new InventorySystem(12);
+        _view.RequestDropToWorld += OnRequestDropToWorld;
     }
 
-    private void OnGUI()
+    private void Start()
     {
-        int slotWidth = 80;
-        int slotHeight = 80;
-        int padding = 10;
-        int columns = 4;
-
-        int startX = 20;
-        int startY = 20;
-
-        for (int i = 0; i < _inventorySystem.Slots.Length; i++)
-        {
-            int x = startX + (i % columns) * (slotWidth + padding);
-            int y = startY + (i / columns) * (slotHeight + padding);
-
-            GUI.Box(new Rect(x, y, slotWidth, slotHeight), "");
-
-            var slot = _inventorySystem.Slots[i];
-
-            if (!slot.IsEmpty)
-            {
-                GUI.Label(new Rect(x + 5, y + 5, slotWidth - 10, 20), slot.ItemData.Name);
-
-                GUI.Label(new Rect(x + 5, y + 25, slotWidth - 10, 20), $"x{slot.Quantity}");
-            }
-        }
+        _view.Bind(_inventorySystem);
     }
 
     private void OnInventoryPressed()
@@ -67,6 +55,27 @@ public class InventoryController : MonoBehaviour
         _gameState.SetMode(opened
             ? GameMode.Inventory
             : GameMode.Gameplay);
+    }
+
+    private void OnRequestDropToWorld(int slotIndex)
+    {
+        var slot = _inventorySystem.Slots[slotIndex];
+        if (slot.IsEmpty) return;
+
+        Debug.Log($"Drop to world: {slot.ItemData.Name} x{slot.Quantity}");
+
+        if (_pickupFactory && _playerInput)
+        {
+            Vector3 dropPos =
+                _playerInput.transform.position +
+                _playerInput.transform.forward * 1.5f +
+                Vector3.up * 0.5f;
+
+            _pickupFactory.Spawn(slot.ItemData.Id, slot.Quantity, dropPos);
+
+        }
+
+        slot.RemoveItem();
     }
 
 }

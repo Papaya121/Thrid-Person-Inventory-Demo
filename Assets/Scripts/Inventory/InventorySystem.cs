@@ -95,6 +95,37 @@ public class InventorySystem
         return totalQuantity >= quantity;
     }
 
+    public bool SwapItem(int fromIndex, int toIndex)
+    {
+        if (fromIndex < 0 || fromIndex >= _slots.Length) return false;
+        if (toIndex < 0 || toIndex >= _slots.Length) return false;
+        if (fromIndex == toIndex) return false;
+
+        var fromSlot = _slots[fromIndex];
+        var toSlot = _slots[toIndex];
+
+        ItemData tempItem = fromSlot.ItemData;
+        int tempQty = fromSlot.Quantity;
+
+        fromSlot.TrySetItem(toSlot.ItemData, toSlot.Quantity);
+        toSlot.TrySetItem(tempItem, tempQty);
+
+        return true;
+    }
+
+    public SlotData GetSlot(int index) => _slots[index];
+
+    public bool TrySetSlot(int index, ItemData item, int qty)
+    {
+        if (index < 0 || index >= _slots.Length) return false;
+        return _slots[index].TrySetItem(item, qty);
+    }
+
+    public void ClearSlot(int index)
+    {
+        if (index < 0 || index >= _slots.Length) return;
+        _slots[index].RemoveItem();
+    }
 }
 
 public class ItemData
@@ -138,7 +169,7 @@ public class SlotData
     {
         _itemData = null;
         _quantity = 0;
-        
+
         SlotChanged?.Invoke();
     }
 

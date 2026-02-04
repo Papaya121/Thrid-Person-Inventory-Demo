@@ -83,8 +83,15 @@ public class InteractionController : MonoBehaviour
             IInteractable interactable = closestCollider.GetComponent<IInteractable>();
             if (interactable != null)
             {
-                print("INTERACT");
-                _inventoryController.InventorySystem.TryAddItem(new ItemData("cube", " Û·", Color.red, true,9), 1);
+                var worldItem = interactable as WorldItem;
+                if (worldItem == null) return;
+
+                bool success = false;
+                if (_inventoryController.ItemDatabase.TryGet(worldItem.ItemId, out var itemData))
+                    success = _inventoryController.InventorySystem.TryAddItem(itemData, worldItem.Quantity);
+
+                if (success)
+                    Destroy(worldItem.gameObject);
             }
         }
     }
