@@ -530,7 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonCamera
   _distance: 3
   _height: 1.72
-  _sensitivity: 2
+  _sensitivity: 0.15
   _minPitch: -30
   _maxPitch: 90
   _target: {fileID: 1699490271}
@@ -1443,7 +1443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRotation
   _playerInput: {fileID: 2116122160}
-  _sensitivity: 2
+  _sensitivity: 0.15
 --- !u!114 &2116122165
 MonoBehaviour:
   m_ObjectHideFlags: 0

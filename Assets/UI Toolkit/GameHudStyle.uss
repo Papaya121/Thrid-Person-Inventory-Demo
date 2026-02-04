@@ -1,0 +1,20 @@
+:root {
+}
+
+.crosshair {
+    background-color: rgba(255, 255, 255, 0.28);
+    margin-top: -3px;
+    margin-left: -3px;
+    width: 6px;
+    height: 6px;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    position: absolute;
+    transition: background-color 0.2s ease;
+    scale: 2 2;
+}
+
+.crosshair.active {
+    background-color: rgba(255, 255, 0, 0.7);
+}
