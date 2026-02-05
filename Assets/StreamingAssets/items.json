@@ -48,6 +48,13 @@
             "color": "#FF9900",
             "stackable": true,
             "maxStack": 5
+        },
+        {
+            "id": "strawberry",
+            "name": "Strawberry",
+            "color": "#FF0000",
+            "stackable": true,
+            "maxStack": 2
         }
     ]
 }
