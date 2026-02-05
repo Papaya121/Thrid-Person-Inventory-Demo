@@ -18,3 +18,24 @@
 .crosshair.active {
     background-color: rgba(255, 255, 0, 0.7);
 }
+
+.pickup-hint {
+    position: absolute;
+    left: 0;
+    top: 65%;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 26px;
+    -unity-text-align: middle-center;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+    -unity-font-style: bold;
+}
+
+.pickup-hint.visible {
+    opacity: 1;
+    font-size: 26px;
+    -unity-font-style: bold;
+}

@@ -1,0 +1,53 @@
+{
+    "items": [
+        {
+            "id": "apple",
+            "name": "Apple",
+            "color": "#E53935",
+            "stackable": true,
+            "maxStack": 9
+        },
+        {
+            "id": "blueberry",
+            "name": "Blueberry",
+            "color": "#1E5BE0",
+            "stackable": true,
+            "maxStack": 20
+        },
+        {
+            "id": "carrot",
+            "name": "Carrot",
+            "color": "#F57C00",
+            "stackable": true,
+            "maxStack": 3
+        },
+        {
+            "id": "coin",
+            "name": "Coin",
+            "color": "#D1B32C",
+            "stackable": true,
+            "maxStack": 99
+        },
+        {
+            "id": "gem",
+            "name": "Gem",
+            "color": "#26A69A",
+            "stackable": false,
+            "maxStack": 1
+        },
+        {
+            "id": "potion",
+            "name": "Potion",
+            "color": "#8E24AA",
+            "stackable": false,
+            "maxStack": 1
+        },
+        {
+            "id": "potato",
+            "name": "Potato",
+            "color": "#FF9900",
+            "stackable": true,
+            "maxStack": 5
+        }
+    ]
+}

@@ -1,10 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/InventoryHudStyle.uss?fileID=7433441132597879392&amp;guid=70da6fc575925b146976b72565799ea9&amp;type=3#InventoryHudStyle" />
+
     <ui:VisualElement name="inventoryRoot" class="inv-root">
         <ui:VisualElement name="window" class="inv-window">
-            <ui:Label text="Inventory" class="inv-title" />
-            <ui:VisualElement name="grid" class="inv-grid" />
+            <ui:VisualElement name="header" class="inv-header">
+                <ui:Label text="Inventory" class="inv-title" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="content" class="inv-content">
+                <ui:VisualElement name="grid" class="inv-grid" />
+            </ui:VisualElement>
         </ui:VisualElement>
+
         <ui:VisualElement name="dragGhost" picking-mode="Ignore" class="drag-ghost" />
     </ui:VisualElement>
 </ui:UXML>
